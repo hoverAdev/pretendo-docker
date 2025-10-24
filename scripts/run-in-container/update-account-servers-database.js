@@ -1,6 +1,6 @@
 // This should be evaled in the account container
-const { connect } = require("./dist/database");
-const { Server } = require("./dist/models/server");
+const {connect} = require("./dist/database");
+const {Server} = require("./dist/models/server");
 
 async function runAsync() {
     await connect();
@@ -106,6 +106,24 @@ async function runAsync() {
         ["000500001012BC00", "000500001012BD00", "000500001012BE00"],
         process.env.SERVER_IP,
         process.env.PIKMIN3_PORT,
+        1,
+        "0".repeat(64)
+    );
+    await createNexServer(
+        "XenobladeX",
+        "10116100",
+        ["00050000101C4C00", "00050000101C4D00", "0005000010116100"],
+        process.env.SERVER_IP,
+        6012,
+        1,
+        "0".repeat(64)
+    );
+    await createNexServer(
+        "Super Smash Bros. Wii U",
+        "10110E00",
+        ["0005000010110E00", "0005000010144F00", "0005000010145000"],
+        process.env.SERVER_IP,
+        process.env.SSBWIIU_PORT,
         1,
         "0".repeat(64)
     );

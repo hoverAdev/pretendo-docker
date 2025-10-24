@@ -2,7 +2,7 @@
 
 set -eu
 
-buckets="pn-cdn pn-boss super-mario-maker"
+buckets="pn-cdn pn-boss super-mario-maker super-smash-bros-wiiu"
 
 # Create buckets and allow public access
 for bucket in $buckets; do

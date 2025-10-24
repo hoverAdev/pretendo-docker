@@ -12,8 +12,6 @@ self-hosting setup).
 | Wii U          | ✅ Working       |
 | Cemu emulator  | ✅ Working       |
 | 3DS            | ✅ Working       |
-| Citra emulator | ⏱️ Coming soon   |
-| Wii/DS/Switch  | ⛔ Unsupported\* |
 
 _\*The Pretendo Network servers only support the Wii U and 3DS consoles. Support for other consoles is not planned._
 

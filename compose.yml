@@ -238,6 +238,7 @@ services:
     env_file:
       - ./environment/adminer.env
 
+
   account:
     build: ./repos/account
     depends_on:
@@ -483,6 +484,28 @@ services:
     env_file:
       - ./environment/pikmin-3.env
       - ./environment/pikmin-3.local.env
+
+# Reserve ports 6012/6013 for XCX
+
+  super-smash-bros-wiiu:
+    build: ./repos/super-smash-bros-wiiu
+    depends_on:
+      - account
+      - friends
+      - minio
+      - postgres
+    restart: always
+    ports:
+      # Authentication server
+      - 6014:6014/udp
+      # Secure server
+      - 6015:6015/udp
+    networks:
+      internal:
+    dns: 172.20.0.200
+    env_file:
+      - ./environment/super-smash-bros-wiiu.env
+      - ./environment/super-smash-bros-wiiu.local.env
 
 volumes:
   mitmproxy-pretendo-data:

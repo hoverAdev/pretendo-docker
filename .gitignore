@@ -1,3 +1,7 @@
+# Ide nonsense
+.idea/
+.vscode/
+
 # Local environment variables (used for secrets)
 .env
 /environment/*.local.env
