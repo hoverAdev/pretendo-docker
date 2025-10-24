@@ -84,6 +84,7 @@ echo "PN_MIIVERSE_API_CONFIG_GRPC_ACCOUNT_API_KEY=$account_grpc_api_key" >>./mii
 echo "JUXT_CONFIG_GRPC_ACCOUNT_API_KEY=$account_grpc_api_key" >>./juxtaposition-ui.local.env
 echo "PN_BOSS_CONFIG_GRPC_ACCOUNT_SERVER_API_KEY=$account_grpc_api_key" >>./boss.local.env
 echo "PN_SMM_ACCOUNT_GRPC_API_KEY=$account_grpc_api_key" >>./super-mario-maker.local.env
+echo "PN_XCX_ACCOUNT_GRPC_API_KEY=$account_grpc_api_key" >>./xenoblade-chronicles-x.local.env
 echo "PN_SPLATOON_ACCOUNT_GRPC_API_KEY=$account_grpc_api_key" >>./splatoon.local.env
 echo "PN_MINECRAFT_ACCOUNT_GRPC_API_KEY=$account_grpc_api_key" >>./minecraft-wiiu.local.env
 echo "PN_PIKMIN3_ACCOUNT_GRPC_API_KEY=$account_grpc_api_key" >>./pikmin-3.local.env
@@ -96,12 +97,14 @@ echo "PN_MIIVERSE_API_CONFIG_S3_ACCESS_SECRET=$minio_secret_key" >>./miiverse-ap
 echo "JUXT_CONFIG_AWS_SPACES_SECRET=$minio_secret_key" >>./juxtaposition-ui.local.env
 echo "PN_BOSS_CONFIG_S3_ACCESS_SECRET=$minio_secret_key" >>./boss.local.env
 echo "PN_SMM_CONFIG_S3_ACCESS_SECRET=$minio_secret_key" >>./super-mario-maker.local.env
+echo "PN_XCX_CONFIG_S3_ACCESS_SECRET=$minio_secret_key" >>./xenoblade-chronicles-x.local.env
 
 # Generate a password for Postgres
 postgres_password=$(generate_password 32)
 echo "POSTGRES_PASSWORD=$postgres_password" >>./postgres.local.env
 echo "PN_FRIENDS_CONFIG_DATABASE_URI=postgres://postgres_pretendo:$postgres_password@postgres/friends?sslmode=disable" >>./friends.local.env
 echo "PN_SMM_POSTGRES_URI=postgres://postgres_pretendo:$postgres_password@postgres/super_mario_maker?sslmode=disable" >>./super-mario-maker.local.env
+echo "PN_XCX_POSTGRES_URI=postgres://postgres_pretendo:$postgres_password@postgres/xenoblade_chronicles_x?sslmode=disable" >>./xenoblade-chronicles-x.local.env
 echo "PN_PIKMIN3_POSTGRES_URI=postgres://postgres_pretendo:$postgres_password@postgres/pikmin3?sslmode=disable" >>./pikmin-3.local.env
 echo "PN_SPLATOON_POSTGRES_URI=postgres://postgres_pretendo:$postgres_password@postgres/splatoon?sslmode=disable" >>./splatoon.local.env
 
@@ -126,6 +129,10 @@ echo "PN_WIIU_CHAT_KERBEROS_PASSWORD=$chat_kerberos_password" >>./wiiu-chat.loca
 # Generate a Kerberos password for the Super Mario Maker server
 smm_kerberos_password=$(generate_password 32)
 echo "PN_SMM_KERBEROS_PASSWORD=$smm_kerberos_password" >>./super-mario-maker.local.env
+
+# Generate a Kerberos password for the xcx server
+xcx_kerberos_password=$(generate_password 32)
+echo "PN_XCX_KERBEROS_PASSWORD=$xcx_kerberos_password" >>./xenoblade-chronicles-x.local.env
 
 # Generate a Kerberos password for the Splatoon server
 splat_kerberos_password=$(generate_password 32)
@@ -153,6 +160,7 @@ echo "SERVER_IP=$server_ip" >>"$git_base_dir/.env"
 echo "PN_FRIENDS_SECURE_SERVER_HOST=$server_ip" >>./friends.local.env
 echo "PN_WIIU_CHAT_SECURE_SERVER_LOCATION=$server_ip" >>./wiiu-chat.local.env
 echo "PN_SMM_SECURE_SERVER_HOST=$server_ip" >>./super-mario-maker.local.env
+echo "PN_XCX_SECURE_SERVER_HOST=$server_ip" >>./xenoblade-chronicles-x.local.env
 echo "PN_SPLATOON_SECURE_SERVER_HOST=$server_ip" >>./splatoon.local.env
 echo "PN_MINECRAFT_SECURE_SERVER_HOST=$server_ip" >>./minecraft-wiiu.local.env
 echo "PN_PIKMIN3_SECURE_SERVER_HOST=$server_ip" >>./pikmin-3.local.env

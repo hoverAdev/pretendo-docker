@@ -83,6 +83,15 @@ async function runAsync() {
         "0".repeat(64)
     );
     await createNexServer(
+        "XenobladeX",
+        "10116100",
+        ["00050000101C4C00", "00050000101C4D00", "0005000010116100"],
+        process.env.SERVER_IP,
+        process.env.XCX_PORT,
+        1,
+        "0".repeat(64)
+    );
+    await createNexServer(
         "Splatoon",
         "10162B00",
         ["0005000010176A00", "0005000010176900", "0005000010162B00"],

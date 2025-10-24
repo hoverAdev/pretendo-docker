@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/repos/BOSS" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/repos/Inkay" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/repos/SSSL" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/repos/SSSL-DNS" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/repos/account" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/repos/friends" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/repos/juxtaposition-ui" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/repos/miiverse-api" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/repos/minecraft-wiiu" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/repos/mitmproxy-pretendo" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/repos/pikmin-3" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/repos/splatoon" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/repos/super-mario-maker" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/repos/website" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/repos/wiiu-chat-authentication" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/repos/wiiu-chat-secure" vcs="Git" />
+  </component>
+</project>
