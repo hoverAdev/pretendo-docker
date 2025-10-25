@@ -3,7 +3,7 @@
 This is an unofficial Docker Compose setup for self-hosting a Pretendo Network server (because there is no official
 self-hosting setup).
 
-[![Test scripts and build Docker images](https://github.com/MatthewL246/pretendo-docker/actions/workflows/test.yml/badge.svg)](https://github.com/MatthewL246/pretendo-docker/actions/workflows/test.yml)
+[![Test scripts and build Docker images](https://github.com/hoverAdev/pretendo-docker/actions/workflows/test.yml/badge.svg)](https://github.com/hoverAdev/pretendo-docker/actions/workflows/test.yml)
 
 ## Supported consoles
 
@@ -21,7 +21,7 @@ _\*The Pretendo Network servers only support the Wii U and 3DS consoles. Support
 - Everything runs in Docker containers and avoids making changes to your host system.
 - Regular updates to support the latest development versions of the servers.
 - Source code of the Pretendo servers is
-  [automatically updated daily by Dependabot](https://github.com/MatthewL246/pretendo-docker/pulls?q=is:pr+author:app/dependabot).
+  [automatically updated daily by Dependabot](https://github.com/hoverAdev/pretendo-docker/pulls?q=is:pr+author:app/dependabot).
 - Supports Wii U and 3DS consoles and emulators with detailed documentation for each.
 - Includes server and database administration tools, with easy access through web interfaces.
 - Useful scripts for managing the servers.
