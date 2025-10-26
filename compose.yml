@@ -13,6 +13,9 @@ services:
       - type: volume
         source: mitmproxy-pretendo-data
         target: /home/mitmproxy/.mitmproxy
+    networks:
+      default:
+      internal:
     command: mitmweb --web-host 0.0.0.0
     tty: true
 
@@ -485,7 +488,22 @@ services:
       - ./environment/pikmin-3.env
       - ./environment/pikmin-3.local.env
 
-# Reserve ports 6012/6013 for XCX
+  xenoblade-chronicles-x:
+    build: ./repos/xenoblade-chronicles-x
+    depends_on:
+      - account
+    restart: always
+    ports:
+      # Authentication server
+      - 6012:6012/udp
+      # Secure server
+      - 6013:6013/udp
+    networks:
+      internal:
+    dns: 172.20.0.200
+    env_file:
+      - ./environment/xenoblade-chronicles-x.env
+      - ./environment/xenoblade-chronicles-x.local.env
 
   super-smash-bros-wiiu:
     build: ./repos/super-smash-bros-wiiu

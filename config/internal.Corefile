@@ -5,5 +5,5 @@
     rewrite name regex (.*\.)?pretendo\.cc nginx answer auto
     rewrite name regex (.*\.)?pretendo\.network nginx answer auto
     rewrite name regex (.*\.)?pretendo-cdn\.b-cdn\.net nginx answer auto
-    forward . 1.1.1.1
+    forward . /etc/resolv.conf
 }

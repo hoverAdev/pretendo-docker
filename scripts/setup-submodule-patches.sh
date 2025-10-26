@@ -31,7 +31,7 @@ for dir in "$git_base_dir/patches/"*; do
             if [[ -n "$update_remote" ]]; then
                 print_info "Applying patch $patch..."
                 # Without --index, --3way will show the error "file: does not match index"
-                if ! git apply --index --reject "$patch"; then
+                if ! git apply --index "$patch"; then
                     print_error "Failed to apply patch $patch! Attempting 3-way merge..."
                     if ! git apply --3way "$patch"; then
                         print_error "There are merge conflicts with the patch that need to be resolved manually."

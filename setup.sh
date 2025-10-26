@@ -105,7 +105,7 @@ print_stage "Checking prerequisites."
 check_prerequisites
 
 print_stage "Setting up submodules and applying patches."
-./scripts/setup-submodule-patches.sh
+./scripts/setup-submodule-patches.sh -u
 
 print_stage "Setting up environment variables."
 setup_environment_variables

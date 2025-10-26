@@ -55,10 +55,18 @@ index e651a69..41c74e1 100644
  }
  
 diff --git a/src/mailer.ts b/src/mailer.ts
-index 0744e14..5ff473b 100644
+index 0744e14..2cd1421 100644
 --- a/src/mailer.ts
 +++ b/src/mailer.ts
-@@ -11,21 +11,7 @@ const confirmationEmailTemplate = fs.readFileSync(path.join(__dirname, './assets
+@@ -1,7 +1,6 @@
+ import path from 'node:path';
+ import fs from 'node:fs';
+ import nodemailer from 'nodemailer';
+-import * as aws from '@aws-sdk/client-ses';
+ import { config, disabledFeatures } from '@/config-manager';
+ import type { MailerOptions } from '@/types/common/mailer-options';
+ 
+@@ -11,21 +10,7 @@ const confirmationEmailTemplate = fs.readFileSync(path.join(__dirname, './assets
  let transporter: nodemailer.Transporter;
  
  if (!disabledFeatures.email) {
@@ -82,7 +90,7 @@ index 0744e14..5ff473b 100644
  
  export async function sendMail(options: MailerOptions): Promise<void> {
 diff --git a/src/types/common/config.ts b/src/types/common/config.ts
-index 66a77c7..d82f349 100644
+index 66a77c7..9a5e0ef 100644
 --- a/src/types/common/config.ts
 +++ b/src/types/common/config.ts
 @@ -19,10 +19,12 @@ export interface Config {
@@ -93,12 +101,12 @@ index 66a77c7..d82f349 100644
 -			region: string;
 -			key: string;
 -			secret: string;
-+        host: string;
-+        port: number;
-+        secure: boolean;
-+        auth: {
-+            user: string;
-+            pass: string;
++		host: string;
++		port: number;
++		secure: boolean;
++		auth: {
++			user: string;
++			pass: string;
  		};
  		from: string;
  	};

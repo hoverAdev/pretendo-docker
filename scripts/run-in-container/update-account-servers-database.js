@@ -114,7 +114,7 @@ async function runAsync() {
         "10116100",
         ["00050000101C4C00", "00050000101C4D00", "0005000010116100"],
         process.env.SERVER_IP,
-        6012,
+        process.env.XCX_PORT,
         1,
         "0".repeat(64)
     );
