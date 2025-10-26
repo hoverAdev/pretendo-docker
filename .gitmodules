@@ -98,3 +98,6 @@ path = repos/super-smash-bros-wiiu
 url = https://github.com/PretendoNetwork/super-smash-bros-wiiu
 branch = master
 ignore = dirty
+[submodule "repos/xenoblade-chronicles-x"]
+	path = repos/xenoblade-chronicles-x
+	url = https://github.com/hoverAdev/xenoblade-chronicles-x.git
