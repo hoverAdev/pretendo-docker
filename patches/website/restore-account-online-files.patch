@@ -1,79 +1,80 @@
-diff --git i/package-lock.json w/package-lock.json
-index 081799b3..9299a49a 100644
---- i/package-lock.json
-+++ w/package-lock.json
-@@ -13,6 +13,7 @@
- 				"@discordjs/rest": "^0.5.0",
+diff --git a/package-lock.json b/package-lock.json
+index 6064145..967788c 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -14,6 +14,7 @@
  				"@node-saml/node-saml": "^5.0.0",
  				"@pretendonetwork/error-codes": "^1.0.3",
+ 				"@pretendonetwork/grpc": "^2.2.3",
 +				"adm-zip": "^0.5.9",
  				"browserify": "^17.0.0",
  				"colors": "^1.4.0",
  				"cookie-parser": "^1.4.5",
-@@ -31,7 +32,8 @@
- 				"mongoose": "^6.4.0",
+@@ -33,7 +34,8 @@
  				"morgan": "^1.10.0",
+ 				"nice-grpc": "^2.1.13",
  				"nodemailer": "^6.7.5",
 -				"stripe": "^9.9.0"
 +				"stripe": "^9.9.0",
 +				"uuid": "^8.3.2"
  			},
  			"devDependencies": {
- 				"eslint": "^7.32.0"
-@@ -2194,6 +2196,14 @@
+ 				"@pretendonetwork/eslint-config": "^0.0.6",
+@@ -2779,6 +2781,15 @@
  				"node": ">=0.4.0"
  			}
  		},
 +		"node_modules/adm-zip": {
-+			"version": "0.5.9",
-+			"resolved": "https://registry.npmjs.org/adm-zip/-/adm-zip-0.5.9.tgz",
-+			"integrity": "sha512-s+3fXLkeeLjZ2kLjCBwQufpI5fuN+kIGBxu6530nVQZGVol0d7Y/M88/xw9HGGUcJjKf8LutN3VPRUBq6N7Ajg==",
++			"version": "0.5.16",
++			"resolved": "https://registry.npmjs.org/adm-zip/-/adm-zip-0.5.16.tgz",
++			"integrity": "sha512-TGw5yVi4saajsSEgz25grObGHEUaDrniwvA2qwSC060KfqGPdglhvPMA2lPIoxs3PQIItj2iag35fONcQqgUaQ==",
++			"license": "MIT",
 +			"engines": {
-+				"node": ">=6.0"
++				"node": ">=12.0"
 +			}
 +		},
  		"node_modules/ajv": {
  			"version": "6.12.6",
  			"resolved": "https://registry.npmjs.org/ajv/-/ajv-6.12.6.tgz",
-@@ -8315,6 +8325,11 @@
+@@ -10840,6 +10851,11 @@
  			"resolved": "https://registry.npmjs.org/acorn-walk/-/acorn-walk-7.2.0.tgz",
  			"integrity": "sha512-OPdCF6GsMIP+Az+aWfAAOEt2/+iVDKE7oy6lJ098aoe59oAmK76qV6Gw60SbZ8jHuG2wH058GF4pLFbYamYrVA=="
  		},
 +		"adm-zip": {
-+			"version": "0.5.9",
-+			"resolved": "https://registry.npmjs.org/adm-zip/-/adm-zip-0.5.9.tgz",
-+			"integrity": "sha512-s+3fXLkeeLjZ2kLjCBwQufpI5fuN+kIGBxu6530nVQZGVol0d7Y/M88/xw9HGGUcJjKf8LutN3VPRUBq6N7Ajg=="
++			"version": "0.5.16",
++			"resolved": "https://registry.npmjs.org/adm-zip/-/adm-zip-0.5.16.tgz",
++			"integrity": "sha512-TGw5yVi4saajsSEgz25grObGHEUaDrniwvA2qwSC060KfqGPdglhvPMA2lPIoxs3PQIItj2iag35fONcQqgUaQ=="
 +		},
  		"ajv": {
  			"version": "6.12.6",
  			"resolved": "https://registry.npmjs.org/ajv/-/ajv-6.12.6.tgz",
-diff --git i/package.json w/package.json
-index d48a71d9..ac94c9b0 100644
---- i/package.json
-+++ w/package.json
-@@ -26,6 +26,7 @@
- 		"@discordjs/rest": "^0.5.0",
+diff --git a/package.json b/package.json
+index e15d68f..6488835 100644
+--- a/package.json
++++ b/package.json
+@@ -28,6 +28,7 @@
  		"@node-saml/node-saml": "^5.0.0",
  		"@pretendonetwork/error-codes": "^1.0.3",
+ 		"@pretendonetwork/grpc": "^2.2.3",
 +		"adm-zip": "^0.5.9",
  		"browserify": "^17.0.0",
  		"colors": "^1.4.0",
  		"cookie-parser": "^1.4.5",
-@@ -44,7 +45,8 @@
- 		"mongoose": "^6.4.0",
+@@ -47,7 +48,8 @@
  		"morgan": "^1.10.0",
+ 		"nice-grpc": "^2.1.13",
  		"nodemailer": "^6.7.5",
 -		"stripe": "^9.9.0"
 +		"stripe": "^9.9.0",
 +		"uuid": "^8.3.2"
  	},
  	"devDependencies": {
- 		"eslint": "^7.32.0"
-diff --git i/public/assets/js/account.js w/public/assets/js/account.js
-index 6c8e360b..aff9c4fd 100644
---- i/public/assets/js/account.js
-+++ w/public/assets/js/account.js
-@@ -1,8 +1,47 @@
+ 		"@pretendonetwork/eslint-config": "^0.0.6",
+diff --git a/public/assets/js/account.js b/public/assets/js/account.js
+index d946fcf..02ed1eb 100644
+--- a/public/assets/js/account.js
++++ b/public/assets/js/account.js
+@@ -1,3 +1,8 @@
 +const onlineFilesModal = document.querySelector('.modal-wrapper#onlinefiles');
 +const onlineFilesModalButtonConfirm = document.getElementById('onlineFilesConfirmButton');
 +const onlineFilesModalButtonClose = document.getElementById('onlineFilesCloseButton');
@@ -82,9 +83,11 @@ index 6c8e360b..aff9c4fd 100644
  const updateServerEnvironmentForm = document.querySelector('form.server-selection');
  const serverSelectionSaveButton = document.querySelector('#save-server-selection');
  const editSettingsModal = document.querySelector('.modal-wrapper#edit-settings');
- const editSettingsModalButtonClose = document.getElementById('editSettingsCloseButton');
+@@ -7,6 +12,40 @@ const deletePNIDConfirmModal = document.querySelector('.modal-wrapper#confirm-de
+ const deletePNIDConfirmModalButtonConfirm = document.getElementById('confirmDeleteConfirmButton');
+ const deletePNIDConfirmModalButtonClose = document.getElementById('confirmDeleteCloseButton');
  
-+document.getElementById('download-cemu-files')?.addEventListener('click', event => {
++document.getElementById('download-cemu-files')?.addEventListener('click', (event) => {
 +	event.preventDefault();
 +
 +	onlineFilesModal.classList.remove('hidden');
@@ -103,7 +106,7 @@ index 6c8e360b..aff9c4fd 100644
 +	})
 +		.then(response => response.blob())
 +		.then(blob => URL.createObjectURL(blob))
-+		.then(blobUrl => {
++		.then((blobUrl) => {
 +			const a = document.createElement('a');
 +			a.href = blobUrl;
 +			a.setAttribute('download', 'Cemu Pretendo Online Files.zip');
@@ -121,20 +124,20 @@ index 6c8e360b..aff9c4fd 100644
  editSettingsModalButtonClose?.addEventListener('click', () => {
  	editSettingsModal.classList.add('hidden');
  });
-diff --git i/src/routes/account.js w/src/routes/account.js
-index c7ecbaa2..acd0bea7 100644
---- i/src/routes/account.js
-+++ w/src/routes/account.js
+diff --git a/src/routes/account.js b/src/routes/account.js
+index afd97d1..650be4c 100644
+--- a/src/routes/account.js
++++ b/src/routes/account.js
 @@ -1,6 +1,8 @@
- const express = require('express');
  const crypto = require('crypto');
+ const express = require('express');
  const DiscordOauth2 = require('discord-oauth2');
 +const { v4: uuidv4 } = require('uuid');
 +const AdmZip = require('adm-zip');
  const Stripe = require('stripe');
  const { REST: DiscordRest } = require('@discordjs/rest');
  const { Routes: DiscordRoutes } = require('discord-api-types/v10');
-@@ -236,6 +238,47 @@ router.get('/remove/discord', requireLoginMiddleware, async (request, response)
+@@ -279,6 +281,47 @@ router.get('/remove/discord', requireLoginMiddleware, async (request, response)
  	}
  });
  
@@ -182,10 +185,10 @@ index c7ecbaa2..acd0bea7 100644
  router.get('/miieditor', requireLoginMiddleware, async (request, response) => {
  	const { account } = request;
  
-diff --git i/views/account/account.handlebars w/views/account/account.handlebars
-index 24f07e2e..65586f95 100644
---- i/views/account/account.handlebars
-+++ w/views/account/account.handlebars
+diff --git a/views/account/account.handlebars b/views/account/account.handlebars
+index 5de959d..0d18202 100644
+--- a/views/account/account.handlebars
++++ b/views/account/account.handlebars
 @@ -25,6 +25,12 @@
  				{{/if}}
  			</div>
@@ -199,7 +202,7 @@ index 24f07e2e..65586f95 100644
  				<a class="button secondary" id="account-upgrade" href="/account/upgrade">
  					<p class="caption">{{ locale.account.settings.upgrade }}</p>
  				</a>
-@@ -188,6 +194,18 @@
+@@ -191,6 +197,18 @@
  </div>
  {{/if}}
  

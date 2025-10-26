@@ -1,23 +1,25 @@
-diff --git i/src/middleware/console-status-verification.ts w/src/middleware/console-status-verification.ts
-index a26d9b6..ad3783b 100644
---- i/src/middleware/console-status-verification.ts
-+++ w/src/middleware/console-status-verification.ts
-@@ -5,6 +5,18 @@ import { Device } from '@/models/device';
- import { getValueFromHeaders } from '@/util';
+diff --git a/src/middleware/console-status-verification.ts b/src/middleware/console-status-verification.ts
+index c67c86e..07a6e80 100644
+--- a/src/middleware/console-status-verification.ts
++++ b/src/middleware/console-status-verification.ts
+@@ -5,7 +5,19 @@ import { getValueFromHeaders } from '@/util';
+ import type express from 'express';
  
  async function consoleStatusVerificationMiddleware(request: express.Request, response: express.Response, next: express.NextFunction): Promise<void> {
-+	if (
-+		request.certificate &&
-+		request.certificate.consoleType === '3ds' &&
-+		!request.certificate.valid &&
-+		request.certificate.certificateName === 'NG00000000' &&
-+		getValueFromHeaders(request.headers, 'x-nintendo-device-id') === '0' &&
-+		!getValueFromHeaders(request.headers, 'x-nintendo-serial-number')
-+	) {
-+		// This is a request from Cemu using the fake online files
-+		return next();
-+	}
+-	if (!request.certificate || !request.certificate.valid) {
++    if (
++        request.certificate &&
++        request.certificate.consoleType === '3ds' &&
++        !request.certificate.valid &&
++        request.certificate.certificateName === 'NG00000000' &&
++        getValueFromHeaders(request.headers, 'x-nintendo-device-id') === '0' &&
++        !getValueFromHeaders(request.headers, 'x-nintendo-serial-number')
++    ) {
++        // This is a request from Cemu using the fake online files
++        return next();
++    }
 +
- 	if (!request.certificate || !request.certificate.valid) {
++    if (!request.certificate || !request.certificate.valid) {
  		response.status(400).send(xmlbuilder.create({
  			error: {
+ 				code: '0110',

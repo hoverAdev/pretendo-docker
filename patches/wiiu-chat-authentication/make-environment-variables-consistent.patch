@@ -1,49 +1,192 @@
-diff --git i/main.go w/main.go
-index 97dcb04..7dcb42d 100644
---- i/main.go
-+++ w/main.go
-@@ -18,7 +18,7 @@ func main() {
- 		Minor: 4,
- 		Patch: 2,
- 	})
+diff --git a/database.go b/database.go
+index abae4c2..a4bfdeb 100644
+--- a/database.go
++++ b/database.go
+@@ -1,41 +1,41 @@
+-package main
+-
+-import (
+-	"context"
+-	"os"
+-	"time"
+-
+-	"go.mongodb.org/mongo-driver/bson"
+-	"go.mongodb.org/mongo-driver/mongo"
+-	"go.mongodb.org/mongo-driver/mongo/options"
+-)
+-
+-var mongoClient *mongo.Client
+-var mongoContext context.Context
+-var mongoDatabase *mongo.Database
+-var mongoCollection *mongo.Collection
+-
+-func connectMongo() {
+-	mongoClient, _ = mongo.NewClient(options.Client().ApplyURI(os.Getenv("MONGO_URI")))
+-	mongoContext, _ = context.WithTimeout(context.Background(), 10*time.Second)
+-	_ = mongoClient.Connect(mongoContext)
+-
+-	mongoDatabase = mongoClient.Database("pretendo")
+-	mongoCollection = mongoDatabase.Collection("nexaccounts")
+-}
+-
+-func getNEXAccountByPID(pid uint32) bson.M {
+-	var result bson.M
+-
+-	err := mongoCollection.FindOne(context.TODO(), bson.D{{Key: "pid", Value: pid}}, options.FindOne()).Decode(&result)
+-
+-	if err != nil {
+-		if err == mongo.ErrNoDocuments {
+-			return nil
+-		}
+-
+-		panic(err)
+-	}
+-
+-	return result
+-}
++package main
++
++import (
++	"context"
++	"os"
++	"time"
++
++	"go.mongodb.org/mongo-driver/bson"
++	"go.mongodb.org/mongo-driver/mongo"
++	"go.mongodb.org/mongo-driver/mongo/options"
++)
++
++var mongoClient *mongo.Client
++var mongoContext context.Context
++var mongoDatabase *mongo.Database
++var mongoCollection *mongo.Collection
++
++func connectMongo() {
++	mongoClient, _ = mongo.NewClient(options.Client().ApplyURI(os.Getenv("PN_WUC_MONGO_URI")))
++	mongoContext, _ = context.WithTimeout(context.Background(), 10*time.Second)
++	_ = mongoClient.Connect(mongoContext)
++
++	mongoDatabase = mongoClient.Database(os.Getenv("PN_WUC_MONGO_DATABASE"))
++	mongoCollection = mongoDatabase.Collection("nexaccounts")
++}
++
++func getNEXAccountByPID(pid uint32) bson.M {
++	var result bson.M
++
++	err := mongoCollection.FindOne(context.TODO(), bson.D{{Key: "pid", Value: pid}}, options.FindOne()).Decode(&result)
++
++	if err != nil {
++		if err == mongo.ErrNoDocuments {
++			return nil
++		}
++
++		panic(err)
++	}
++
++	return result
++}
+diff --git a/main.go b/main.go
+index 97dcb04..eb61ca3 100644
+--- a/main.go
++++ b/main.go
+@@ -1,50 +1,50 @@
+-package main
+-
+-import (
+-	"fmt"
+-	"os"
+-
+-	nex "github.com/PretendoNetwork/nex-go"
+-	"github.com/PretendoNetwork/nex-protocols-common-go/authentication"
+-)
+-
+-var nexServer *nex.Server
+-
+-func main() {
+-	nexServer = nex.NewServer()
+-	nexServer.SetPRUDPVersion(1)
+-	nexServer.SetDefaultNEXVersion(&nex.NEXVersion{
+-		Major: 3,
+-		Minor: 4,
+-		Patch: 2,
+-	})
 -	nexServer.SetKerberosPassword(os.Getenv("KERBEROS_PASSWORD"))
-+	nexServer.SetKerberosPassword(os.Getenv("PN_WIIU_CHAT_KERBEROS_PASSWORD"))
- 	nexServer.SetAccessKey("e7a47214")
- 
- 	nexServer.On("Data", func(packet *nex.PacketV1) {
-@@ -34,8 +34,8 @@ func main() {
- 
- 	secureStationURL := nex.NewStationURL("")
- 	secureStationURL.SetScheme("prudps")
+-	nexServer.SetAccessKey("e7a47214")
+-
+-	nexServer.On("Data", func(packet *nex.PacketV1) {
+-		request := packet.RMCRequest()
+-
+-		fmt.Println("==WiiU Chat - Auth==")
+-		fmt.Printf("Protocol ID: %#v\n", request.ProtocolID())
+-		fmt.Printf("Method ID: %#v\n", request.MethodID())
+-		fmt.Println("====================")
+-	})
+-
+-	authenticationProtocol := authentication.NewCommonAuthenticationProtocol(nexServer)
+-
+-	secureStationURL := nex.NewStationURL("")
+-	secureStationURL.SetScheme("prudps")
 -	secureStationURL.SetAddress(os.Getenv("SECURE_SERVER_LOCATION"))
 -	secureStationURL.SetPort(os.Getenv("SECURE_SERVER_PORT"))
-+	secureStationURL.SetAddress(os.Getenv("PN_WIIU_CHAT_SECURE_SERVER_LOCATION"))
-+	secureStationURL.SetPort(os.Getenv("PN_WIIU_CHAT_SECURE_SERVER_PORT"))
- 	secureStationURL.SetCID("1")
- 	secureStationURL.SetPID("2")
- 	secureStationURL.SetSID("1")
-@@ -46,5 +46,5 @@ func main() {
- 	authenticationProtocol.SetBuildName("Pretendo WiiU Chat Auth")
- 	authenticationProtocol.SetPasswordFromPIDFunction(passwordFromPID)
- 
+-	secureStationURL.SetCID("1")
+-	secureStationURL.SetPID("2")
+-	secureStationURL.SetSID("1")
+-	secureStationURL.SetStream("10")
+-	secureStationURL.SetType("2")
+-
+-	authenticationProtocol.SetSecureStationURL(secureStationURL)
+-	authenticationProtocol.SetBuildName("Pretendo WiiU Chat Auth")
+-	authenticationProtocol.SetPasswordFromPIDFunction(passwordFromPID)
+-
 -	nexServer.Listen(":60004")
-+	nexServer.Listen(":" + os.Getenv("PN_WIIU_CHAT_AUTHENTICATION_SERVER_PORT"))
- }
-diff --git i/database.go w/database.go
-index abae4c2..05f1527 100644
---- i/database.go
-+++ w/database.go
-@@ -16,11 +16,11 @@ var mongoDatabase *mongo.Database
- var mongoCollection *mongo.Collection
- 
- func connectMongo() {
--	mongoClient, _ = mongo.NewClient(options.Client().ApplyURI(os.Getenv("MONGO_URI")))
-+	mongoClient, _ = mongo.NewClient(options.Client().ApplyURI(os.Getenv("PN_WIIU_CHAT_MONGO_URI")))
- 	mongoContext, _ = context.WithTimeout(context.Background(), 10*time.Second)
- 	_ = mongoClient.Connect(mongoContext)
- 
--	mongoDatabase = mongoClient.Database("pretendo")
-+	mongoDatabase = mongoClient.Database(os.Getenv("PN_WIIU_CHAT_MONGO_DATABASE"))
- 	mongoCollection = mongoDatabase.Collection("nexaccounts")
- }
- 
+-}
++package main
++
++import (
++	"fmt"
++	"os"
++
++	nex "github.com/PretendoNetwork/nex-go"
++	"github.com/PretendoNetwork/nex-protocols-common-go/authentication"
++)
++
++var nexServer *nex.Server
++
++func main() {
++	nexServer = nex.NewServer()
++	nexServer.SetPRUDPVersion(1)
++	nexServer.SetDefaultNEXVersion(&nex.NEXVersion{
++		Major: 3,
++		Minor: 4,
++		Patch: 2,
++	})
++	nexServer.SetKerberosPassword(os.Getenv("PN_WUC_KERBEROS_PASSWORD"))
++	nexServer.SetAccessKey("e7a47214")
++
++	nexServer.On("Data", func(packet *nex.PacketV1) {
++		request := packet.RMCRequest()
++
++		fmt.Println("==WiiU Chat - Auth==")
++		fmt.Printf("Protocol ID: %#v\n", request.ProtocolID())
++		fmt.Printf("Method ID: %#v\n", request.MethodID())
++		fmt.Println("====================")
++	})
++
++	authenticationProtocol := authentication.NewCommonAuthenticationProtocol(nexServer)
++
++	secureStationURL := nex.NewStationURL("")
++	secureStationURL.SetScheme("prudps")
++	secureStationURL.SetAddress(os.Getenv("PN_WUC_SECURE_SERVER_LOCATION"))
++	secureStationURL.SetPort(os.Getenv("PN_WUC_SECURE_SERVER_PORT"))
++	secureStationURL.SetCID("1")
++	secureStationURL.SetPID("2")
++	secureStationURL.SetSID("1")
++	secureStationURL.SetStream("10")
++	secureStationURL.SetType("2")
++
++	authenticationProtocol.SetSecureStationURL(secureStationURL)
++	authenticationProtocol.SetBuildName("Pretendo WiiU Chat Auth")
++	authenticationProtocol.SetPasswordFromPIDFunction(passwordFromPID)
++
++	nexServer.Listen(":" + os.Getenv("PN_WUC_AUTHENTICATION_SERVER_PORT"))
++}

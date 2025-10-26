@@ -1,13 +1,10 @@
-diff --git i/src/stripe.js w/src/stripe.js
-index eddb382..b60c1c2 100644
---- i/src/stripe.js
-+++ w/src/stripe.js
-@@ -5,9 +5,8 @@ const database = require('./database');
- const logger = require('./logger');
- const config = require('../config.json');
+diff --git a/src/stripe.js b/src/stripe.js
+index 53e417b..f6ff9a8 100644
+--- a/src/stripe.js
++++ b/src/stripe.js
+@@ -8,6 +8,7 @@ const logger = require('./logger');
+ const stripe = new Stripe(config.stripe.secret_key);
  
--const stripe = new Stripe(config.stripe.secret_key);
--
  async function handleStripeEvent(event) {
 +	return;
  	if (event.type === 'customer.subscription.updated' || event.type === 'customer.subscription.deleted') {

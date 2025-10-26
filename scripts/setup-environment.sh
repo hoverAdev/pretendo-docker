@@ -116,7 +116,7 @@ friends_secure_password=$(generate_password 32)
 echo "PN_FRIENDS_CONFIG_SECURE_PASSWORD=$friends_secure_password" >>./friends.local.env
 friends_api_key=$(generate_password 32)
 echo "PN_FRIENDS_CONFIG_GRPC_API_KEY=$friends_api_key" >>./friends.local.env
-echo "PN_WIIU_CHAT_FRIENDS_GRPC_API_KEY=$friends_api_key" >>./wiiu-chat.local.env
+echo "PN_WUC_FRIENDS_GRPC_API_KEY=$friends_api_key" >>./wiiu-chat.local.env
 echo "PN_MIIVERSE_API_CONFIG_GRPC_FRIENDS_API_KEY=$friends_api_key" >>./miiverse-api.local.env
 echo "JUXT_CONFIG_GRPC_FRIENDS_API_KEY=$friends_api_key" >>./juxtaposition-ui.local.env
 echo "PN_BOSS_CONFIG_GRPC_FRIENDS_SERVER_API_KEY=$friends_api_key" >>./boss.local.env
@@ -126,7 +126,7 @@ echo "PN_FRIENDS_CONFIG_AES_KEY=$friends_aes_key" >>./friends.local.env
 
 # Generate a Kerberos password for the Wii U Chat server
 chat_kerberos_password=$(generate_password 32)
-echo "PN_WIIU_CHAT_KERBEROS_PASSWORD=$chat_kerberos_password" >>./wiiu-chat.local.env
+echo "PN_WUC_KERBEROS_PASSWORD=$chat_kerberos_password" >>./wiiu-chat.local.env
 
 # Generate a Kerberos password for the Super Mario Maker server
 smm_kerberos_password=$(generate_password 32)
@@ -157,7 +157,7 @@ echo "PN_BOSS_CONFIG_GRPC_BOSS_SERVER_API_KEY=$boss_api_key" >>./boss.local.env
 if_verbose print_info "Using server IP address $server_ip."
 echo "SERVER_IP=$server_ip" >>"$git_base_dir/.env"
 echo "PN_FRIENDS_SECURE_SERVER_HOST=$server_ip" >>./friends.local.env
-echo "PN_WIIU_CHAT_SECURE_SERVER_LOCATION=$server_ip" >>./wiiu-chat.local.env
+echo "PN_WUC_SECURE_SERVER_LOCATION=$server_ip" >>./wiiu-chat.local.env
 echo "PN_SMM_SECURE_SERVER_HOST=$server_ip" >>./super-mario-maker.local.env
 echo "PN_SPLATOON_SECURE_SERVER_HOST=$server_ip" >>./splatoon.local.env
 echo "PN_MINECRAFT_SECURE_SERVER_HOST=$server_ip" >>./minecraft-wiiu.local.env

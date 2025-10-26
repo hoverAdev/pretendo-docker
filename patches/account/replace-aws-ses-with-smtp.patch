@@ -1,8 +1,8 @@
-diff --git i/src/config-manager.ts w/src/config-manager.ts
-index 09a2220..7bad4ac 100644
---- i/src/config-manager.ts
-+++ w/src/config-manager.ts
-@@ -42,10 +42,12 @@ export const config: Config = {
+diff --git a/src/config-manager.ts b/src/config-manager.ts
+index e651a69..41c74e1 100644
+--- a/src/config-manager.ts
++++ b/src/config-manager.ts
+@@ -47,10 +47,12 @@ export const config: Config = {
  		}
  	},
  	email: {
@@ -19,7 +19,7 @@ index 09a2220..7bad4ac 100644
  		},
  		from: process.env.PN_ACT_CONFIG_EMAIL_FROM || ''
  	},
-@@ -101,18 +103,28 @@ if (!config.redis.client.url) {
+@@ -166,18 +168,28 @@ if (!config.redis.client.url) {
  	disabledFeatures.redis = true;
  }
  
@@ -45,7 +45,7 @@ index 09a2220..7bad4ac 100644
 +}
 +
 +if (!config.email.auth.user) {
-+	LOG_WARN('Failed to find email account username. Disabling feature. To enable feature set the auth.user environment variable');
++	LOG_WARN('Failed to find email account username. Disabling feature. To enable feature set the PN_ACT_CONFIG_EMAIL_USERNAME environment variable');
 +	disabledFeatures.email = true;
 +}
 +
@@ -54,19 +54,11 @@ index 09a2220..7bad4ac 100644
  	disabledFeatures.email = true;
  }
  
-diff --git i/src/mailer.ts w/src/mailer.ts
-index ea9a1cd..230d412 100644
---- i/src/mailer.ts
-+++ w/src/mailer.ts
-@@ -1,7 +1,6 @@
- import path from 'node:path';
- import fs from 'node:fs';
- import nodemailer from 'nodemailer';
--import * as aws from '@aws-sdk/client-ses';
- import { config, disabledFeatures } from '@/config-manager';
- import { MailerOptions } from '@/types/common/mailer-options';
- 
-@@ -11,21 +10,7 @@ const confirmationEmailTemplate: string = fs.readFileSync(path.join(__dirname, '
+diff --git a/src/mailer.ts b/src/mailer.ts
+index 0744e14..5ff473b 100644
+--- a/src/mailer.ts
++++ b/src/mailer.ts
+@@ -11,21 +11,7 @@ const confirmationEmailTemplate = fs.readFileSync(path.join(__dirname, './assets
  let transporter: nodemailer.Transporter;
  
  if (!disabledFeatures.email) {
@@ -89,24 +81,24 @@ index ea9a1cd..230d412 100644
  }
  
  export async function sendMail(options: MailerOptions): Promise<void> {
-diff --git i/src/types/common/config.ts w/src/types/common/config.ts
-index 9c11436..ce328d9 100644
---- i/src/types/common/config.ts
-+++ w/src/types/common/config.ts
-@@ -14,10 +14,12 @@ export interface Config {
- 		}
+diff --git a/src/types/common/config.ts b/src/types/common/config.ts
+index 66a77c7..d82f349 100644
+--- a/src/types/common/config.ts
++++ b/src/types/common/config.ts
+@@ -19,10 +19,12 @@ export interface Config {
+ 		};
  	};
  	email: {
 -		ses: {
 -			region: string;
 -			key: string;
 -			secret: string;
-+		host: string;
-+		port: number;
-+		secure: boolean;
-+		auth: {
-+			user: string;
-+			pass: string;
++        host: string;
++        port: number;
++        secure: boolean;
++        auth: {
++            user: string;
++            pass: string;
  		};
  		from: string;
  	};

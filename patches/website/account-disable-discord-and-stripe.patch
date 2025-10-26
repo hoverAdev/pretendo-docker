@@ -1,15 +1,18 @@
-diff --git i/src/routes/account.js w/src/routes/account.js
-index 1f398b0..6d46424 100644
---- i/src/routes/account.js
-+++ w/src/routes/account.js
-@@ -15,17 +15,7 @@ const editorJSON =  require('../json/miieditor.json');
+diff --git a/src/routes/account.js b/src/routes/account.js
+index afd97d1..5328632 100644
+--- a/src/routes/account.js
++++ b/src/routes/account.js
+@@ -17,21 +17,11 @@ const config = require('../config');
  
  const { Router } = express;
  
 -const stripe = new Stripe(config.stripe.secret_key);
  const router = new Router();
 -const discordRest = new DiscordRest({ version: '10' }).setToken(config.discord.bot_token);
--
+ 
+ const gRPCApiChannel = createChannel(`${config.grpc.api.host}:${config.grpc.api.port}`);
+ const gRPCApiClient = createClient(ApiServiceDefinition, gRPCApiChannel);
+ 
 -// Create OAuth client
 -const discordOAuth = new DiscordOauth2({
 -	clientId: config.discord.client_id,
@@ -17,10 +20,11 @@ index 1f398b0..6d46424 100644
 -	redirectUri: `${config.http.base_url}/account/connect/discord`,
 -	version: 'v10'
 -});
- 
+-
  router.get('/', requireLoginMiddleware, async (request, response) => {
  	// Setup the data to be sent to the handlebars renderer
-@@ -49,6 +39,9 @@ router.get('/', requireLoginMiddleware, async (request, response) => {
+ 	const renderData = {};
+@@ -54,6 +44,9 @@ router.get('/', requireLoginMiddleware, async (request, response) => {
  	renderData.account = account;
  	renderData.isTester = account.access_level > 0;
  
@@ -30,7 +34,7 @@ index 1f398b0..6d46424 100644
  	// Check if a Discord account is linked to the PNID
  	if (account.connections.discord.id && account.connections.discord.id.trim() !== '') {
  		try {
-@@ -169,6 +162,7 @@ router.get('/reset-password', async (request, response) => {
+@@ -207,6 +200,7 @@ router.get('/reset-password', async (request, response) => {
  });
  
  router.get('/connect/discord', requireLoginMiddleware, async (request, response) => {
@@ -38,7 +42,7 @@ index 1f398b0..6d46424 100644
  	const { pnid } = request;
  	let tokens;
  	try {
-@@ -213,6 +207,7 @@ router.get('/connect/discord', requireLoginMiddleware, async (request, response)
+@@ -251,6 +245,7 @@ router.get('/connect/discord', requireLoginMiddleware, async (request, response)
  });
  
  router.get('/remove/discord', requireLoginMiddleware, async (request, response) => {
@@ -46,7 +50,7 @@ index 1f398b0..6d46424 100644
  	const { account, pnid } = request;
  
  	try {
-@@ -251,6 +246,7 @@ router.get('/miieditor', requireLoginMiddleware, async (request, response) => {
+@@ -289,6 +284,7 @@ router.get('/miieditor', requireLoginMiddleware, async (request, response) => {
  });
  
  router.get('/upgrade', requireLoginMiddleware, async (request, response) => {
@@ -54,7 +58,7 @@ index 1f398b0..6d46424 100644
  	// Set user account info to render data
  	const { pnid } = request;
  
-@@ -292,6 +288,7 @@ router.get('/upgrade', requireLoginMiddleware, async (request, response) => {
+@@ -330,6 +326,7 @@ router.get('/upgrade', requireLoginMiddleware, async (request, response) => {
  });
  
  router.post('/stripe/checkout/:priceId', requireLoginMiddleware, async (request, response) => {
@@ -62,7 +66,7 @@ index 1f398b0..6d46424 100644
  	// Set user account info to render data
  	const { account } = request;
  	const pid = account.pid;
-@@ -353,6 +350,7 @@ router.post('/stripe/checkout/:priceId', requireLoginMiddleware, async (request,
+@@ -391,6 +388,7 @@ router.post('/stripe/checkout/:priceId', requireLoginMiddleware, async (request,
  });
  
  router.post('/stripe/unsubscribe', requireLoginMiddleware, async (request, response) => {
@@ -70,7 +74,7 @@ index 1f398b0..6d46424 100644
  	// Set user account info to render data
  	const { pnid } = request;
  
-@@ -392,6 +390,7 @@ router.post('/stripe/unsubscribe', requireLoginMiddleware, async (request, respo
+@@ -430,6 +428,7 @@ router.post('/stripe/unsubscribe', requireLoginMiddleware, async (request, respo
  });
  
  router.post('/stripe/webhook', async (request, response) => {

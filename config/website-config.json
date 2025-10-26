@@ -12,5 +12,19 @@
                 "useUnifiedTopology": true
             }
         }
+    },
+  "github": {},
+  "stripe": {},
+  "discord": {
+    "roles": {}
+  },
+  "discourse": {
+    "sso": {}
+  },
+  "grpc": {
+    "api": {
+      "host": "account",
+      "port": 5000
     }
+  }
 }

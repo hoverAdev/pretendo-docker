@@ -1,8 +1,8 @@
-diff --git i/locales/en@uwu.json w/locales/en@uwu.json
-index 386a5fd..be76907 100644
---- i/locales/en@uwu.json
-+++ w/locales/en@uwu.json
-@@ -209,7 +209,8 @@
+diff --git a/locales/en@uwu.json b/locales/en@uwu.json
+index 7df6d8e..549781a 100644
+--- a/locales/en@uwu.json
++++ b/locales/en@uwu.json
+@@ -381,7 +381,8 @@
  			"normal kitteh",
  			"early kitteh",
  			"watchin kitteh",
@@ -12,11 +12,11 @@ index 386a5fd..be76907 100644
  		],
  		"banned": "bad kitteh &gt;:("
  	},
-diff --git i/locales/en_US.json w/locales/en_US.json
-index 5ad0fe9..70f2d1a 100644
---- i/locales/en_US.json
-+++ w/locales/en_US.json
-@@ -328,7 +328,8 @@
+diff --git a/locales/en_US.json b/locales/en_US.json
+index 6331f93..b7d338d 100644
+--- a/locales/en_US.json
++++ b/locales/en_US.json
+@@ -394,7 +394,8 @@
  			"Standard",
  			"Tester",
  			"Moderator",
@@ -26,10 +26,10 @@ index 5ad0fe9..70f2d1a 100644
  		],
  		"banned": "Banned"
  	},
-diff --git i/public/assets/css/account.css w/public/assets/css/account.css
-index bbed44e..a47597e 100644
---- i/public/assets/css/account.css
-+++ w/public/assets/css/account.css
+diff --git a/public/assets/css/account.css b/public/assets/css/account.css
+index fb6d515..0a6a19a 100644
+--- a/public/assets/css/account.css
++++ b/public/assets/css/account.css
 @@ -76,6 +76,25 @@
  	color:#5AFF15;
  	border-color: #5AFF15;

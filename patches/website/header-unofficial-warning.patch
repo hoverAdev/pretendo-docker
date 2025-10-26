@@ -1,7 +1,7 @@
-diff --git i/views/partials/header.handlebars w/views/partials/header.handlebars
-index 8fda1e0..db4c26b 100644
---- i/views/partials/header.handlebars
-+++ w/views/partials/header.handlebars
+diff --git a/views/partials/header.handlebars b/views/partials/header.handlebars
+index 41ee76c..cf136ed 100644
+--- a/views/partials/header.handlebars
++++ b/views/partials/header.handlebars
 @@ -1,5 +1,9 @@
  <link rel="stylesheet" href="/assets/css/partials/header.css" ></link>
 -

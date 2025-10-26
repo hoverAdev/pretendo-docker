@@ -1,14 +1,14 @@
-diff --git i/tsconfig.json w/tsconfig.json
-index cdef6fa..de41d36 100644
---- i/tsconfig.json
-+++ w/tsconfig.json
+diff --git a/tsconfig.json b/tsconfig.json
+index cdef6fa..25fcded 100644
+--- a/tsconfig.json
++++ b/tsconfig.json
 @@ -16,7 +16,8 @@
  		"typeRoots": [
  			"node_modules/@types",
  			"node_modules/@hcaptcha"
 -		]
 +		],
-+		"sourceMap": true,
++      "sourceMap": true
  	},
  	"include": ["src"]
  }

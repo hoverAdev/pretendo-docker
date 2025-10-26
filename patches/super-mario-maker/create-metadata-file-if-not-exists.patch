@@ -1,7 +1,7 @@
-diff --git i/database/init_postgres.go w/database/init_postgres.go
-index c211c98..3aaffcf 100644
---- i/database/init_postgres.go
-+++ w/database/init_postgres.go
+diff --git a/database/init_postgres.go b/database/init_postgres.go
+index 5c8fe53..cbb696b 100644
+--- a/database/init_postgres.go
++++ b/database/init_postgres.go
 @@ -1,11 +1,14 @@
  package database
  
@@ -11,7 +11,7 @@ index c211c98..3aaffcf 100644
 +	"strings"
  	"time"
  
- 	"github.com/PretendoNetwork/super-mario-maker-secure/globals"
+ 	"github.com/PretendoNetwork/super-mario-maker/globals"
  	"github.com/lib/pq"
 +	"github.com/minio/minio-go/v7"
  )
