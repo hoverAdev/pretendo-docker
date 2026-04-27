@@ -1,5 +1,5 @@
 diff --git a/package-lock.json b/package-lock.json
-index 0d27671..bd1022e 100644
+index 0d27671..3fcbcbc 100644
 --- a/package-lock.json
 +++ b/package-lock.json
 @@ -14,6 +14,7 @@
@@ -25,9 +25,9 @@ index 0d27671..bd1022e 100644
  			}
  		},
 +		"node_modules/adm-zip": {
-+			"version": "0.5.16",
-+			"resolved": "https://registry.npmjs.org/adm-zip/-/adm-zip-0.5.16.tgz",
-+			"integrity": "sha512-TGw5yVi4saajsSEgz25grObGHEUaDrniwvA2qwSC060KfqGPdglhvPMA2lPIoxs3PQIItj2iag35fONcQqgUaQ==",
++			"version": "0.5.17",
++			"resolved": "https://registry.npmjs.org/adm-zip/-/adm-zip-0.5.17.tgz",
++			"integrity": "sha512-+Ut8d9LLqwEvHHJl1+PIHqoyDxFgVN847JTVM3Izi3xHDWPE4UtzzXysMZQs64DMcrJfBeS/uoEP4AD3HQHnQQ==",
 +			"license": "MIT",
 +			"engines": {
 +				"node": ">=12.0"
@@ -36,18 +36,46 @@ index 0d27671..bd1022e 100644
  		"node_modules/ajv": {
  			"version": "6.14.0",
  			"resolved": "https://registry.npmjs.org/ajv/-/ajv-6.14.0.tgz",
-@@ -10314,6 +10325,11 @@
+@@ -8236,6 +8247,15 @@
+ 				"node": ">= 0.4.0"
+ 			}
+ 		},
++		"node_modules/uuid": {
++			"version": "8.3.2",
++			"resolved": "https://registry.npmjs.org/uuid/-/uuid-8.3.2.tgz",
++			"integrity": "sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==",
++			"license": "MIT",
++			"bin": {
++				"uuid": "dist/bin/uuid"
++			}
++		},
+ 		"node_modules/vary": {
+ 			"version": "1.1.2",
+ 			"resolved": "https://registry.npmjs.org/vary/-/vary-1.1.2.tgz",
+@@ -10314,6 +10334,11 @@
  			"resolved": "https://registry.npmjs.org/acorn-walk/-/acorn-walk-7.2.0.tgz",
  			"integrity": "sha512-OPdCF6GsMIP+Az+aWfAAOEt2/+iVDKE7oy6lJ098aoe59oAmK76qV6Gw60SbZ8jHuG2wH058GF4pLFbYamYrVA=="
  		},
 +		"adm-zip": {
-+			"version": "0.5.16",
-+			"resolved": "https://registry.npmjs.org/adm-zip/-/adm-zip-0.5.16.tgz",
-+			"integrity": "sha512-TGw5yVi4saajsSEgz25grObGHEUaDrniwvA2qwSC060KfqGPdglhvPMA2lPIoxs3PQIItj2iag35fONcQqgUaQ=="
++			"version": "0.5.17",
++			"resolved": "https://registry.npmjs.org/adm-zip/-/adm-zip-0.5.17.tgz",
++			"integrity": "sha512-+Ut8d9LLqwEvHHJl1+PIHqoyDxFgVN847JTVM3Izi3xHDWPE4UtzzXysMZQs64DMcrJfBeS/uoEP4AD3HQHnQQ=="
 +		},
  		"ajv": {
  			"version": "6.14.0",
  			"resolved": "https://registry.npmjs.org/ajv/-/ajv-6.14.0.tgz",
+@@ -14487,6 +14512,11 @@
+ 			"resolved": "https://registry.npmjs.org/utils-merge/-/utils-merge-1.0.1.tgz",
+ 			"integrity": "sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM="
+ 		},
++		"uuid": {
++			"version": "8.3.2",
++			"resolved": "https://registry.npmjs.org/uuid/-/uuid-8.3.2.tgz",
++			"integrity": "sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg=="
++		},
+ 		"vary": {
+ 			"version": "1.1.2",
+ 			"resolved": "https://registry.npmjs.org/vary/-/vary-1.1.2.tgz",
 diff --git a/package.json b/package.json
 index e15d68f..6488835 100644
 --- a/package.json
