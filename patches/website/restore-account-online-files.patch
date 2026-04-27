@@ -1,5 +1,5 @@
 diff --git a/package-lock.json b/package-lock.json
-index 6064145..967788c 100644
+index 0d27671..bd1022e 100644
 --- a/package-lock.json
 +++ b/package-lock.json
 @@ -14,6 +14,7 @@
@@ -20,7 +20,7 @@ index 6064145..967788c 100644
  			},
  			"devDependencies": {
  				"@pretendonetwork/eslint-config": "^0.0.6",
-@@ -2779,6 +2781,15 @@
+@@ -2437,6 +2439,15 @@
  				"node": ">=0.4.0"
  			}
  		},
@@ -34,9 +34,9 @@ index 6064145..967788c 100644
 +			}
 +		},
  		"node_modules/ajv": {
- 			"version": "6.12.6",
- 			"resolved": "https://registry.npmjs.org/ajv/-/ajv-6.12.6.tgz",
-@@ -10840,6 +10851,11 @@
+ 			"version": "6.14.0",
+ 			"resolved": "https://registry.npmjs.org/ajv/-/ajv-6.14.0.tgz",
+@@ -10314,6 +10325,11 @@
  			"resolved": "https://registry.npmjs.org/acorn-walk/-/acorn-walk-7.2.0.tgz",
  			"integrity": "sha512-OPdCF6GsMIP+Az+aWfAAOEt2/+iVDKE7oy6lJ098aoe59oAmK76qV6Gw60SbZ8jHuG2wH058GF4pLFbYamYrVA=="
  		},
@@ -46,8 +46,8 @@ index 6064145..967788c 100644
 +			"integrity": "sha512-TGw5yVi4saajsSEgz25grObGHEUaDrniwvA2qwSC060KfqGPdglhvPMA2lPIoxs3PQIItj2iag35fONcQqgUaQ=="
 +		},
  		"ajv": {
- 			"version": "6.12.6",
- 			"resolved": "https://registry.npmjs.org/ajv/-/ajv-6.12.6.tgz",
+ 			"version": "6.14.0",
+ 			"resolved": "https://registry.npmjs.org/ajv/-/ajv-6.14.0.tgz",
 diff --git a/package.json b/package.json
 index e15d68f..6488835 100644
 --- a/package.json

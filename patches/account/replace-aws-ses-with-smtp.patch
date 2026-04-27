@@ -1,8 +1,8 @@
 diff --git a/src/config-manager.ts b/src/config-manager.ts
-index e651a69..41c74e1 100644
+index 3499f05..839550d 100644
 --- a/src/config-manager.ts
 +++ b/src/config-manager.ts
-@@ -47,10 +47,12 @@ export const config: Config = {
+@@ -51,10 +51,12 @@ export const config: Config = {
  		}
  	},
  	email: {
@@ -19,7 +19,7 @@ index e651a69..41c74e1 100644
  		},
  		from: process.env.PN_ACT_CONFIG_EMAIL_FROM || ''
  	},
-@@ -166,18 +168,28 @@ if (!config.redis.client.url) {
+@@ -170,18 +172,28 @@ if (!config.redis.client.url) {
  	disabledFeatures.redis = true;
  }
  
@@ -33,7 +33,7 @@ index e651a69..41c74e1 100644
 -if (!config.email.ses.key) {
 -	LOG_WARN('Failed to find AWS SES access key. Disabling feature. To enable feature set the PN_ACT_CONFIG_EMAIL_SES_ACCESS_KEY environment variable');
 +if (!config.email.port) {
-+	LOG_WARN('Failed to find email SMTP port. Disabling feature. To enable feature set the PN_ACT_CONFIG_EMAIL_PORT environment variable');
++	LOG_WARN('Failed to find Aemail SMTP port. Disabling feature. To enable feature set the PN_ACT_CONFIG_EMAIL_PORT environment variable');
  	disabledFeatures.email = true;
  }
  
@@ -55,7 +55,7 @@ index e651a69..41c74e1 100644
  }
  
 diff --git a/src/mailer.ts b/src/mailer.ts
-index 0744e14..2cd1421 100644
+index be632d8..9978b0f 100644
 --- a/src/mailer.ts
 +++ b/src/mailer.ts
 @@ -1,7 +1,6 @@
@@ -63,10 +63,10 @@ index 0744e14..2cd1421 100644
  import fs from 'node:fs';
  import nodemailer from 'nodemailer';
 -import * as aws from '@aws-sdk/client-ses';
+ import { encode } from 'he';
  import { config, disabledFeatures } from '@/config-manager';
  import type { MailerOptions } from '@/types/common/mailer-options';
- 
-@@ -11,21 +10,7 @@ const confirmationEmailTemplate = fs.readFileSync(path.join(__dirname, './assets
+@@ -11,21 +10,7 @@ const genericEmailTemplate = fs.readFileSync(path.join(__dirname, './assets/emai
  let transporter: nodemailer.Transporter;
  
  if (!disabledFeatures.email) {
@@ -88,12 +88,12 @@ index 0744e14..2cd1421 100644
 +	transporter = nodemailer.createTransport(config.email);
  }
  
- export async function sendMail(options: MailerOptions): Promise<void> {
+ interface emailComponent {
 diff --git a/src/types/common/config.ts b/src/types/common/config.ts
-index 66a77c7..9a5e0ef 100644
+index 0eab22f..57c1fa8 100644
 --- a/src/types/common/config.ts
 +++ b/src/types/common/config.ts
-@@ -19,10 +19,12 @@ export interface Config {
+@@ -22,10 +22,12 @@ export interface Config {
  		};
  	};
  	email: {
