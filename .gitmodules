@@ -54,7 +54,7 @@ ignore = dirty
 [submodule "repos/BOSS"]
 path = repos/BOSS
 url = https://github.com/PretendoNetwork/BOSS
-branch = master
+branch = dev
 ignore = dirty
 
 [submodule "repos/super-mario-maker"]
