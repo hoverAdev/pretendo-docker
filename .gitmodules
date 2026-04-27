@@ -27,18 +27,6 @@ url = https://github.com/PretendoNetwork/friends.git
 branch = dev
 ignore = dirty
 
-[submodule "repos/miiverse-api"]
-path = repos/miiverse-api
-url = https://github.com/PretendoNetwork/miiverse-api.git
-branch = dev
-ignore = dirty
-
-[submodule "repos/juxtaposition-ui"]
-path = repos/juxtaposition-ui
-url = https://github.com/PretendoNetwork/juxtaposition-ui.git
-branch = dev
-ignore = dirty
-
 [submodule "repos/wiiu-chat-authentication"]
 path = repos/wiiu-chat-authentication
 url = https://github.com/PretendoNetwork/wiiu-chat-authentication.git
@@ -101,3 +89,6 @@ ignore = dirty
 [submodule "repos/xenoblade-chronicles-x"]
 	path = repos/xenoblade-chronicles-x
 	url = https://github.com/hoverAdev/xenoblade-chronicles-x.git
+[submodule "repos/juxtaposition"]
+	path = repos/juxtaposition
+	url = https://github.com/PretendoNetwork/juxtaposition.git
