@@ -28,7 +28,7 @@ _\*The Pretendo Network servers only support the Wii U and 3DS consoles. Support
 
 ## Getting started
 
-**Please visit [the documentation website](https://matthewl246.github.io/pretendo-docker) for detailed setup and usage
+**Please visit [the documentation website](https://hoverAdev.github.io/pretendo-docker) for detailed setup and usage
 instructions.**
 
 ## Future plans
@@ -38,7 +38,7 @@ information on my plans for this project.
 
 ## Learn more
 
-- Read the [containers documentation](https://matthewl246.github.io/pretendo-docker/containers-list) to learn about the
+- Read the [containers documentation](https://hoverAdev.github.io/pretendo-docker/containers-list) to learn about the
   different components of this project.
 - Read Pretendo's [Nintendo Wiki](https://nintendo-wiki.pretendo.network/docs/) for technical information about
   Nintendo's protocols and their [Developer Documentation](https://developer.pretendo.network/home) for more information

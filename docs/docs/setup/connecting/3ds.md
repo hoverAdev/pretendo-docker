@@ -84,7 +84,7 @@ dangerous modifications to the system save data.
 :::info[How does this work?]
 
 The
-[Friends Account Switcher](https://github.com/MatthewL246/pretendo-docker/blob/main/console-files/FriendsAccountSwitcher.gm9)
+[Friends Account Switcher](https://github.com/hoverAdev/pretendo-docker/blob/main/console-files/FriendsAccountSwitcher.gm9)
 script simply implements "save slots" for the Friends and account system modules, similarly to what Checkpoint does for
 games.
 

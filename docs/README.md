@@ -2,9 +2,9 @@
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
-[![Build and deploy documentation site](https://github.com/MatthewL246/pretendo-docker/actions/workflows/docs.yml/badge.svg)](https://github.com/MatthewL246/pretendo-docker/actions/workflows/docs.yml)
+[![Build and deploy documentation site](https://github.com/hoverAdev/pretendo-docker/actions/workflows/docs.yml/badge.svg)](https://github.com/hoverAdev/pretendo-docker/actions/workflows/docs.yml)
 
-## [View the live site here](https://matthewl246.github.io/pretendo-docker)
+## [View the live site here](https://hoverAdev.github.io/pretendo-docker)
 
 ## Development
 

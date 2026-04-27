@@ -3,7 +3,7 @@ import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
 const github = {
-    username: "MatthewL246",
+    username: "hoverAdev",
     repo: "pretendo-docker",
 };
 
@@ -20,10 +20,15 @@ const config: Config = {
     trailingSlash: true,
 
     onBrokenLinks: "throw",
-    onBrokenMarkdownLinks: "warn",
+    markdown: {
+        hooks: {
+            onBrokenMarkdownLinks: "warn",
+        },
+    },
 
     future: {
-        experimental_faster: true,
+        faster: true,
+        v4: true,
     },
 
     i18n: {
