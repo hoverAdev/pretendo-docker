@@ -1,4 +1,5 @@
 // This should be evaled in the miiverse-api container
+
 const { connect } = require("./dist/database");
 const { Endpoint } = require("./dist/models/endpoint");
 
