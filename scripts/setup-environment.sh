@@ -79,9 +79,11 @@ echo "PN_ACT_CONFIG_DATASTORE_SIGNATURE_SECRET=$account_datastore_secret" >>./ac
 account_grpc_api_key=$(generate_password 32)
 echo "PN_ACT_CONFIG_GRPC_MASTER_API_KEY_ACCOUNT=$account_grpc_api_key" >>./account.local.env
 echo "PN_ACT_CONFIG_GRPC_MASTER_API_KEY_API=$account_grpc_api_key" >>./account.local.env
-echo "PN_FRIENDS_ACCOUNT_GRPC_API_KEY=$account_grpc_api_key" >>./friends.local.env
+echo "PN_FRIENDS_CONFIG_ACCOUNT_GRPC_API_KEY=$account_grpc_api_key" >>./friends.local.env
+echo "PN_FRIENDS_CONFIG_ACCOUNT_GRPCAPI_KEY=$account_grpc_api_key" >>./friends.local.env
 echo "PN_MIIVERSE_API_GRPC_ACCOUNT_API_KEY=$account_grpc_api_key" >>./miiverse-api.local.env
 echo "PN_JUXTAPOSITION_UI_GRPC_ACCOUNT_API_KEY=$account_grpc_api_key" >>./juxtaposition-ui.local.env
+echo "PN_WUC_ACCOUNT_GRPC_API_KEY=$account_grpc_api_key" >>./wiiu-chat.local.env
 echo "PN_BOSS_CONFIG_GRPC_ACCOUNT_SERVER_API_KEY=$account_grpc_api_key" >>./boss.local.env
 echo "PN_SMM_ACCOUNT_GRPC_API_KEY=$account_grpc_api_key" >>./super-mario-maker.local.env
 echo "PN_SPLATOON_ACCOUNT_GRPC_API_KEY=$account_grpc_api_key" >>./splatoon.local.env
@@ -105,26 +107,32 @@ echo "PN_SSBWIIU_DATASTORE_S3SECRET=$minio_secret_key" >>./super-smash-bros-wiiu
 postgres_password=$(generate_password 32)
 echo "POSTGRES_PASSWORD=$postgres_password" >>./postgres.local.env
 echo "PN_FRIENDS_CONFIG_POSTGRES_URI=postgres://postgres_pretendo:$postgres_password@postgres/friends?sslmode=disable" >>./friends.local.env
-echo "PN_WUC_DATABASE_URI=postgres://postgres_pretendo:$postgres_password@postgres/wiiu_chat?sslmode=disable" >>./wiiu-chat.local.env
+echo "PN_MIIVERSE_API_DB_URL=postgres://postgres_pretendo:$postgres_password@postgres/miiverse_api?sslmode=disable" >>./miiverse-api.local.env
+echo "PN_WUC_POSTGRES_URI=postgres://postgres_pretendo:$postgres_password@postgres/wiiu_chat?sslmode=disable" >>./wiiu-chat.local.env
 echo "PN_SMM_POSTGRES_URI=postgres://postgres_pretendo:$postgres_password@postgres/super_mario_maker?sslmode=disable" >>./super-mario-maker.local.env
 echo "PN_PIKMIN3_POSTGRES_URI=postgres://postgres_pretendo:$postgres_password@postgres/pikmin3?sslmode=disable" >>./pikmin-3.local.env
 echo "PN_SPLATOON_POSTGRES_URI=postgres://postgres_pretendo:$postgres_password@postgres/splatoon?sslmode=disable" >>./splatoon.local.env
 echo "PN_SSBWIIU_POSTGRES_URI=postgres://postgres_pretendo:$postgres_password@postgres/ssbwiiu?sslmode=disable" >>./super-smash-bros-wiiu.local.env
 
-# Generate passwords, a gRPC API key, and an AES key for the friends server
+# Generate passwords, a gRPC API key, an AES key, and an HMAC key for the friends server
 friends_authentication_password=$(generate_password 32)
 echo "PN_FRIENDS_CONFIG_AUTHENTICATION_PASSWORD=$friends_authentication_password" >>./friends.local.env
 friends_secure_password=$(generate_password 32)
 echo "PN_FRIENDS_CONFIG_SECURE_PASSWORD=$friends_secure_password" >>./friends.local.env
 friends_api_key=$(generate_password 32)
 echo "PN_FRIENDS_CONFIG_GRPC_API_KEY=$friends_api_key" >>./friends.local.env
+echo "PN_FRIENDS_CONFIG_GRPCAPI_KEY=$friends_api_key" >>./friends.local.env
 echo "PN_WUC_FRIENDS_GRPC_API_KEY=$friends_api_key" >>./wiiu-chat.local.env
 echo "PN_MIIVERSE_API_GRPC_FRIENDS_API_KEY=$friends_api_key" >>./miiverse-api.local.env
 echo "PN_JUXTAPOSITION_UI_GRPC_FRIENDS_API_KEY=$friends_api_key" >>./juxtaposition-ui.local.env
 echo "PN_BOSS_CONFIG_GRPC_FRIENDS_SERVER_API_KEY=$friends_api_key" >>./boss.local.env
+echo "PN_SPLATOON_FRIENDS_GRPC_API_KEY=$friends_api_key" >>./splatoon.local.env
 echo "PN_SSBWIIU_FRIENDS_GRPC_API_KEY=$friends_api_key" >>./super-smash-bros-wiiu.local.env
+echo "PN_MINECRAFT_FRIENDS_GRPC_API_KEY=$friends_api_key" >>./minecraft-wiiu.local.env
 friends_aes_key=$(generate_hex 64)
 echo "PN_FRIENDS_CONFIG_AES_KEY=$friends_aes_key" >>./friends.local.env
+pid_hmac_key=$(generate_hex 64)
+echo "PN_FRIENDS_CONFIG_PID_HMAC_KEY=$pid_hmac_key" >>./friends.local.env
 
 # Generate a Kerberos password for the Wii U Chat server
 chat_kerberos_password=$(generate_password 32)

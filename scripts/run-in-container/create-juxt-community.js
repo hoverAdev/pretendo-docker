@@ -7,9 +7,9 @@ const sharp = require("sharp");
 const { S3, Endpoint } = require("aws-sdk");
 
 const s3 = new S3({
-    endpoint: new Endpoint(process.env.JUXT_CONFIG_AWS_SPACES_ENDPOINT),
-    accessKeyId: process.env.JUXT_CONFIG_AWS_SPACES_KEY,
-    secretAccessKey: process.env.JUXT_CONFIG_AWS_SPACES_SECRET,
+    endpoint: new Endpoint(process.env.PN_JUXTAPOSITION_UI_S3_ENDPOINT),
+    accessKeyId: process.env.PN_JUXTAPOSITION_UI_S3_KEY,
+    secretAccessKey: process.env.PN_JUXTAPOSITION_UI_S3_SECRET,
 });
 
 async function runAsync() {

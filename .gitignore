@@ -23,3 +23,9 @@
 
 # Backups
 /backups/
+
+# Generated online files
+/online-files/
+
+# MacOS
+.DS_Store
